@@ -1,7 +1,5 @@
 from django.db import models
-from .enums import FORMAT_TYPE
-# Create your models here.
- 
+from .enums import FORMAT_TYPE 
 
 
 class BaseAsset(models.Model):
@@ -17,6 +15,7 @@ class BaseAsset(models.Model):
 
     def __str__(self):
         return self.name + ": " + self.location
+
 
 class Furniture(BaseAsset):
     photo_3 = models.CharField(max_length=200,blank=True,null=True)
@@ -34,11 +33,13 @@ class Furniture(BaseAsset):
     class Meta:
         verbose_name_plural = "furniture"
 
+
 class Appliance(Furniture):
     power_draw = models.DecimalField(help_text="Amps",decimal_places=2,max_digits=7,blank=True,null=True)
     serial_number = models.CharField(max_length=200,blank=True,null=True)
     class Meta:
         verbose_name_plural = "appliances"
+
 
 class Disc(BaseAsset):
     disc_format = models.CharField(choices=FORMAT_TYPE,max_length=200,blank=True,null=True)
@@ -47,11 +48,13 @@ class Disc(BaseAsset):
     barcode = models.CharField(max_length=200,blank=True,null=True)
     num_discs = models.IntegerField("Number of Discs",blank=True, null=True,default=1)
     
+
 class Technology(BaseAsset):
     serial_number = models.CharField(max_length=200,blank=True,null=True)
 
     class Meta:
         verbose_name_plural = "technology"
+
 
 class Book(BaseAsset):
     author = models.CharField(choices=FORMAT_TYPE,max_length=200,blank=True,null=True)
@@ -62,27 +65,64 @@ class Book(BaseAsset):
     edition = models.CharField(choices=FORMAT_TYPE,max_length=200,blank=True,null=True)
 
 
+class Electronics(BaseAsset):
+    pack_quantity = models.IntegerField(null=True, blank=True, default=1)
+
+    class Meta:
+        verbose_name_plural = "Electronics"
+ 
+
 class Camping(BaseAsset):
-    pass
+
+    class Meta:
+        verbose_name_plural = "Camping"
     
+
 class Car(BaseAsset):
-    pass
+    
+    class Meta:
+        verbose_name_plural = "Car"
+
 
 class Kitchenware(BaseAsset):
-    pass
+    
+    class Meta:
+        verbose_name_plural = "Kitchenware"
+
 
 class Sport(BaseAsset):
-    pass
+    
+    class Meta:
+        verbose_name_plural = "Sport"
+
 
 class Music(BaseAsset):
+    
+    class Meta:
+        verbose_name_plural = "Electronics"
+
+
+class PuzzlesAndGames(BaseAsset):
+
+    class Meta:
+        verbose_name_plural = "Puzzles and Games"
+
+
+class Tool(BaseAsset):
     pass
 
-class Puzzles_and_games(BaseAsset):
+
+class Ornament(BaseAsset):
     pass
-  
-          
+
+
+class Stationary(BaseAsset):
+
+    class Meta:
+        verbose_name_plural = "Stationary"  
+
+
 class Other(BaseAsset):
     catagory = models.CharField(max_length=200,blank=True,null=True)
     class Meta:
-        verbose_name_plural = "other"
-
+        verbose_name_plural = "Other"
