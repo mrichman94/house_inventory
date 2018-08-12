@@ -34,7 +34,17 @@ class Furniture(BaseAsset):
         verbose_name_plural = "furniture"
 
 
-class Appliance(Furniture):
+class Appliance(BaseAsset):
+    photo_3 = models.CharField(max_length=200,blank=True,null=True)
+    photo_4 = models.CharField(max_length=200,blank=True,null=True)
+    photo_5 = models.CharField(max_length=200,blank=True,null=True)
+    photo_6 = models.CharField(max_length=200,blank=True,null=True)
+    colour = models.CharField(max_length=200,blank=True,null=True)
+    manufacturer = models.CharField(max_length=200,blank=True,null=True)
+    model = models.CharField(max_length=200,blank=True,null=True)
+    height = models.DecimalField(help_text="mm",decimal_places=2,max_digits=7,blank=True,null=True)
+    width = models.DecimalField(help_text="mm",decimal_places=2,max_digits=7,blank=True,null=True)
+    depth = models.DecimalField(help_text="mm",decimal_places=2,max_digits=7,blank=True,null=True)
     power_draw = models.DecimalField(help_text="Amps",decimal_places=2,max_digits=7,blank=True,null=True)
     serial_number = models.CharField(max_length=200,blank=True,null=True)
     class Meta:

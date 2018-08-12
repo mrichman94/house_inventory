@@ -1,7 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Furniture, Appliance, Disc, Technology, Other
+from .models import Furniture, Appliance, Disc, Technology, Book, Electronics, Camping,\
+    Car, Kitchenware, Sport, Music, PuzzlesAndGames, Tool, Ornament, Stationary, Other, BaseAsset
+admin.site.register(BaseAsset)
 
 class FurnitureAdmin(admin.ModelAdmin):
     model = Furniture

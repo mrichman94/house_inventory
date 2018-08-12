@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Appliance',
             fields=[
-                ('furniture_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='assets.Furniture')),
+                ('baseasset_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='assets.BaseAsset')),
                 ('power_draw', models.DecimalField(blank=True, decimal_places=2, help_text='Amps', max_digits=7, null=True)),
             ],
             options={
                 'verbose_name_plural': 'appliances',
             },
-            bases=('assets.furniture',),
+            bases=('assets.baseasset',),
         ),
         migrations.AlterModelOptions(
             name='furniture',
